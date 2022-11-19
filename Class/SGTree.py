@@ -2,7 +2,7 @@ class SGTree:
     def __init__(self, size) -> None:
         self.seg = [0] * (4 * size + 1)
 
-    def bulid(self, ind, low, high, arr):
+    def build(self, ind, low, high, arr):
         if low == high:
             self.seg[ind] = arr[low]
             return
