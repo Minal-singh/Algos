@@ -1,22 +1,21 @@
-from math import sqrt
+def SieveOfEratosthenes(num):
+    prime = [True for i in range(num + 1)]
+    p = 2
+    while (p * p <= num):
+
+        # If prime[p] is not
+        # changed, then it is a prime
+        if (prime[p] is True):
+
+            # Updating all multiples of p
+            for i in range(p * p, num + 1, p):
+                prime[i] = False
+        p += 1
+
+    # Print all prime numbers
+    for p in range(2, num + 1):
+        if prime[p]:
+            print(p)
 
 
-def prime(n):
-    seive = [int(i) for i in range(n + 1)]
-    seive[0] = False
-    seive[1] = False
-    for i in range(4, n + 1, 2):
-        seive[i] = False
-    for i in range(3, int(sqrt(n)), 2):
-        j = i * i
-        while j < n + 1:
-            seive[j] = False
-            j += i
-    for k in seive:
-        if k:
-            print(k)
-        else:
-            pass
-
-
-prime(100)
+SieveOfEratosthenes(100)
