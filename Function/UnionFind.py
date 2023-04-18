@@ -2,28 +2,13 @@ UF = {}
 
 
 def find(x):
-    if x != UF[x]:
+    if x != UF.setdefault(x, x):
         UF[x] = find(UF[x])
     return UF[x]
 
 
 def union(x, y):
-    UF.setdefault(x, x)
-    UF.setdefault(y, y)
     UF[find(x)] = find(y)
-
-
-"""
-# shorter version
-def ffind(x):
-    if x != UF.setdefault(x, x):
-        UF[x] = ffind(UF[x])
-    return UF[x]
-
-
-# union function
-UF[ffind(1)] = ffind(2)
-"""
 
 
 union(1, 2)
